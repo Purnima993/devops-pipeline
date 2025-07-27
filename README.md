@@ -93,8 +93,11 @@ devops-pipeline/
 └── README.md                # Project documentation
 
 🖊️ Author
+
 Purnima Sethi
+
 GitHub Profile
 
 📜 License
+
 This project is licensed under the MIT License.
