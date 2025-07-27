@@ -64,30 +64,25 @@ The pipeline provisions infrastructure, integrates security tools, and automates
 1. Clone the repository:
    ```bash
    git clone https://github.com/Purnima993/devops-pipeline.git
-Navigate into the project:
-
-bash
-Copy code
+2. Navigate into the project:
 cd devops-pipeline
-Initialize and apply Terraform:
 
-bash
-Copy code
+3. Initialize and apply Terraform:
 terraform init
 terraform apply
-Verify AWS CodePipeline setup in AWS console.
 
-Push code changes to GitHub to trigger the GitHub Actions workflow.
+4. Verify AWS CodePipeline setup in AWS console.
 
-Check:
+5. Push code changes to GitHub to trigger the GitHub Actions workflow.
 
-Security scans (tfsec, Trivy)
+6. Check:
 
-Deployment using Sealed Secrets and Kubernetes.
+   -Security scans (tfsec, Trivy)
 
-📂 Project Structure
-bash
-Copy code
+   -Deployment using Sealed Secrets and Kubernetes.
+
+##📂 Project Structure
+
 devops-pipeline/
 │
 ├── terraform/               # Terraform modules for AWS resources
@@ -96,9 +91,10 @@ devops-pipeline/
 ├── scripts/                 # Helper scripts for deployment
 ├── Dockerfile               # Docker image for application
 └── README.md                # Project documentation
-🖊️ Author
+
+##🖊️ Author
 Purnima Sethi
 GitHub Profile
 
-📜 License
+##📜 License
 This project is licensed under the MIT License.
