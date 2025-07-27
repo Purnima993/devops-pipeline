@@ -1,38 +1,104 @@
-# 🚀 DevOps + DevSecOps CI/CD Pipeline
+# AWS DevSecOps Pipeline with Terraform, GitHub Actions & Kubernetes Sealed Secrets
 
-This project sets up a complete CI/CD pipeline with AWS (CodePipeline, CodeBuild, CodeDeploy) and integrates security scanning using GitHub Actions with tfsec, Trivy, and Sealed Secrets.
+## 📌 Project Overview
+This project implements a **secure and automated CI/CD pipeline** on AWS using:
+- **AWS CodePipeline with Terraform**
+- **DevSecOps security scanning**
+- **GitHub Actions for CI/CD**
+- **Kubernetes Sealed Secrets for secure secret management**
 
----
-
-## 🔧 Task 1: DevOps Pipeline (AWS)
-
-- **Tools:** Terraform, CodePipeline, CodeBuild, CodeDeploy, EC2, S3
-- **Flow:**
-  1. Code pushed to GitHub triggers CodePipeline
-  2. CodeBuild zips `deploy/` folder → uploads to S3
-  3. CodeDeploy deploys to EC2 using `appspec.yml` + lifecycle scripts
-
-**Key Files:**
-- `appspec.yml`: Defines EC2 deployment hooks
-- `buildspec.yml`: Zips deploy directory
-- Shell scripts: `install.sh`, `start.sh`, `stop.sh`
+The pipeline provisions infrastructure, integrates security tools, and automates deployment.
 
 ---
 
-## 🛡️ Task 2: DevSecOps Integration
+## ✅ Features
+- AWS CodePipeline provisioned using **Terraform**
+- CI/CD workflow with **GitHub Actions**
+- Security scanning:
+  - `tfsec` for Terraform code
+  - `Trivy` for Docker image scanning
+- Secrets management using **Kubernetes Sealed Secrets**
+- Deployment automation to AWS (CodeDeploy / EC2) and Kubernetes
 
-### 🔒 Tools Used:
-- **tfsec**: Scans Terraform code for security vulnerabilities.
-- **Trivy**: Scans the filesystem and Dockerfile for vulnerabilities.
-- **Sealed Secrets**: Securely manages Kubernetes secrets in version control.
-- **GitHub Actions**: Automates security scanning on push and PRs.
+---
 
-### ✅ GitHub Workflow (`.github/workflows/devsecops.yml`)
-- Triggered on `push` or `pull_request` to the `main` branch.
-- Runs `tfsec` on Terraform code.
-- Installs and runs `Trivy` to scan Dockerfile and local files.
-- You can extend this to include `kubesec` or `kube-score` later.
+## 🛠️ Tools & Technologies Used
+- **Infrastructure as Code:** Terraform
+- **Pipeline Service:** AWS CodePipeline
+- **Build & Deploy:** AWS CodeBuild, AWS CodeDeploy, EC2
+- **CI/CD Automation:** GitHub Actions
+- **Security Tools:** tfsec, Trivy
+- **Secrets Management:** Kubernetes Sealed Secrets
+- **Cloud Platform:** AWS
+- **Testing:** Terratest for infrastructure testing
 
+---
 
+## ✅ Tasks Implemented
 
+### **Task 1: CodePipeline using Terraform**
+- Provisioned AWS CodePipeline using Terraform.
+- Pipeline includes:
+  - **Source stage:** GitHub integration
+  - **Build stage:** AWS CodeBuild
+  - **Deploy stage:** AWS CodeDeploy / EC2
+- Defined infrastructure:
+  - CodePipeline, CodeBuild, CodeDeploy
+  - IAM roles and policies
+  - S3 bucket for artifact storage
+- Wrote infrastructure tests using **Terratest**.
+- Applied Terraform and confirmed pipeline setup.
 
+### **Task 2: DevSecOps Integration**
+- **GitHub Actions** workflow for CI/CD:
+  - Runs on every code push.
+  - Executes security scans:
+    - `tfsec` for Terraform
+    - `Trivy` for Docker image
+  - Applies **SealedSecrets** for Kubernetes secret management.
+  - Triggers deployment to Kubernetes and updates infrastructure.
+
+---
+
+## ⚙️ How to Run the Project
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Purnima993/devops-pipeline.git
+Navigate into the project:
+
+bash
+Copy code
+cd devops-pipeline
+Initialize and apply Terraform:
+
+bash
+Copy code
+terraform init
+terraform apply
+Verify AWS CodePipeline setup in AWS console.
+
+Push code changes to GitHub to trigger the GitHub Actions workflow.
+
+Check:
+
+Security scans (tfsec, Trivy)
+
+Deployment using Sealed Secrets and Kubernetes.
+
+📂 Project Structure
+bash
+Copy code
+devops-pipeline/
+│
+├── terraform/               # Terraform modules for AWS resources
+├── .github/workflows/       # GitHub Actions workflows
+├── sealed-secrets/          # Kubernetes Sealed Secrets configurations
+├── scripts/                 # Helper scripts for deployment
+├── Dockerfile               # Docker image for application
+└── README.md                # Project documentation
+🖊️ Author
+Purnima Sethi
+GitHub Profile
+
+📜 License
+This project is licensed under the MIT License.
