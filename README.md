@@ -81,7 +81,7 @@ terraform apply
 
    -Deployment using Sealed Secrets and Kubernetes.
 
-##📂 Project Structure
+📂 Project Structure
 
 devops-pipeline/
 │
@@ -92,9 +92,9 @@ devops-pipeline/
 ├── Dockerfile               # Docker image for application
 └── README.md                # Project documentation
 
-##🖊️ Author
+🖊️ Author
 Purnima Sethi
 GitHub Profile
 
-##📜 License
+📜 License
 This project is licensed under the MIT License.
