@@ -84,13 +84,21 @@ terraform apply
 📂 Project Structure
 
 devops-pipeline/
+
 │
+
 ├── terraform/               # Terraform modules for AWS resources
+
 ├── .github/workflows/       # GitHub Actions workflows
+
 ├── sealed-secrets/          # Kubernetes Sealed Secrets configurations
+
 ├── scripts/                 # Helper scripts for deployment
+
 ├── Dockerfile               # Docker image for application
+
 └── README.md                # Project documentation
+
 
 🖊️ Author
 
